@@ -1,6 +1,7 @@
 import express from 'express'
 import dotenv from 'dotenv'
 import connectDb from './config/dbConnect.js'
+import studentRouter from './routes/studentRoute.js'
 
 dotenv.config()
 
@@ -17,11 +18,11 @@ server.get('/',(req,res)=>{
     return res.send('server is running')
 })
 
+server.use('/api/student',studentRouter)
 
 const PORT=process.env.PORT || 5001
 
 //run server
 server.listen(PORT,()=>{
     console.log(`server is running on PORT ${PORT}`);
-    
 })

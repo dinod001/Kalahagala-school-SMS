@@ -7,13 +7,13 @@ import {
   getAllStudent,
 } from "../controllers/studentController.js";
 
-const router = express.Router();
+const studentRouter = express.Router();
 
 // routes
-router.post("/add", addStudent);       // Add new student
-router.put("/update/:id", updateStudent); // Update student by ID
-router.delete("/delete/:id", deleteStudent); // Delete student by ID
-router.get("/get/:id", getStudent);    // Get student by ID
-router.get("/get-all", getAllStudent);     // Get all students
+studentRouter.post("/add", addStudent);       // Add new student
+studentRouter.put("/update/:id", updateStudent); // Update student by ID
+studentRouter.delete("/delete/:id", deleteStudent); // Delete student by ID
+studentRouter.get("/get/:id", getStudent);    // Get student by ID
+studentRouter.get("/get-all", getAllStudent);     // Get all students
 
-export default router;
+export default studentRouter;
