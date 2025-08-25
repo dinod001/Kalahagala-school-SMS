@@ -2,6 +2,7 @@ import express from 'express'
 import dotenv from 'dotenv'
 import connectDb from './config/dbConnect.js'
 import studentRouter from './routes/studentRoute.js'
+import userRouter from './routes/user.js'
 
 dotenv.config()
 
@@ -19,6 +20,7 @@ server.get('/',(req,res)=>{
 })
 
 server.use('/api/student',studentRouter)
+server.use('/api/student',userRouter)
 
 const PORT=process.env.PORT || 5001
 
