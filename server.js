@@ -3,6 +3,7 @@ import dotenv from 'dotenv'
 import connectDb from './config/dbConnect.js'
 import studentRouter from './routes/studentRoute.js'
 import userRouter from './routes/user.js'
+import { protect } from './middlewares/auth.js'
 
 dotenv.config()
 
@@ -18,9 +19,8 @@ server.use(express.json())
 server.get('/',(req,res)=>{
     return res.send('server is running')
 })
-
-server.use('/api/student',studentRouter)
 server.use('/api/student',userRouter)
+server.use('/api/student',protect,studentRouter)
 
 const PORT=process.env.PORT || 5001
 
